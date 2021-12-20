@@ -1,6 +1,6 @@
 import 'package:github_user/ui/views/location/location_navigator.dart';
-import 'package:github_user/util/location_permissions_plugin.dart';
-import 'package:github_user/util/location_plugin.dart';
+import 'package:github_user/utils/location_permissions_plugin.dart';
+import 'package:github_user/utils/location_plugin.dart';
 import 'package:location/location.dart';
 
 import '../basic_viewmodel.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:github_user/util/log_plugin.dart';
+import 'package:github_user/utils/log_plugin.dart';
 
 import 'tab_viewmodel.dart';
 

@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:github_user/core/model/github_user.dart';
-import 'package:github_user/util/log_plugin.dart';
+import 'package:github_user/utils/log_plugin.dart';
 import 'package:http/http.dart' as http;
 
 class ApiService with LogPlugin {

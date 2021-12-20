@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:github_user/core/model/github_user.dart';
-import 'package:github_user/util/log_plugin.dart';
+import 'package:github_user/utils/log_plugin.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:async';

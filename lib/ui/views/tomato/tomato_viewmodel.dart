@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:github_user/generated/l10n.dart';
 import 'package:github_user/ui/views/basic_viewmodel.dart';
-import 'package:github_user/util/countdown.dart';
+import 'package:github_user/utils/countdown.dart';
 
 class TomatoViewModel extends BasicViewModel {
   late List<int> times;

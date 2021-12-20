@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:stacked/stacked.dart';
-import 'package:github_user/util/log_plugin.dart';
+import 'package:github_user/utils/log_plugin.dart';
 
 class BasicViewModel extends BaseViewModel with LogPlugin {
   void showDialog({
