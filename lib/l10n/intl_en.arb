@@ -1,0 +1,12 @@
+{
+  "button_to_start": "Start",
+  "button_to_stop": "Stop",
+  "button_to_pause": "Pause",
+  "button_to_resume": "Resume",
+  "home_title": "Home",
+  "common_alert": "Alert",
+  "common_cancel": "Cancel",
+  "common_ok": "Ok",
+  "location_permission_not_grant_description": "Permisstion not grant, do you want to app setting to grant it?",
+  "location_permission_go_to_setting": "Goto setting"
+}
