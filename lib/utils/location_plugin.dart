@@ -2,7 +2,7 @@ import 'package:location/location.dart';
 
 mixin LocationPlugin {
   Future<LocationData> location() async {
-    Location location = new Location();
+    Location location = Location();
     bool _serviceEnabled;
     PermissionStatus _permissionGranted;
 

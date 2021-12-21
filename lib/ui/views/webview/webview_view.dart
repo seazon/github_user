@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:github_user/ui/views/webview/webview_viewmodel.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-import './webview_viewmodel.dart';
+
 import '../basic_view.dart';
 
 class WebViewView extends BasicView<WebViewViewModel> {
@@ -47,9 +49,7 @@ class WebViewView extends BasicView<WebViewViewModel> {
     return JavascriptChannel(
         name: 'Toaster',
         onMessageReceived: (JavascriptMessage message) {
-          Scaffold.of(context).showSnackBar(
-            SnackBar(content: Text(message.message)),
-          );
+          Get.snackbar("", message.message);
         });
   }
 

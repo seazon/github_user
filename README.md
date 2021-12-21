@@ -2,6 +2,12 @@
 
 ## Examples
 
+#### build release or debug build
+```bash
+flutter build apk --release
+flutter build apk --debug
+```
+
 #### Environment
 example for running with prod environment
 ```bash

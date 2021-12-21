@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -14,28 +16,28 @@ class ImagePickerView extends BasicView<ImagePickerViewModel> {
     return WillPopScope(
         child: Scaffold(
           appBar: AppBar(
-            title: Text('Image Picker'),
+            title: const Text('Image Picker'),
             actions: <Widget>[
               IconButton(
-                icon: Icon(Icons.image),
+                icon: const Icon(Icons.image),
                 onPressed: () => model.getImage(ImageSource.gallery),
               ),
             ],
           ),
           body: Center(
-            child: model.image == null
-                ? Text('No image selected.')
-                : Image.file(model.image),
+            child: model.image?.path == null
+                ? const Text('No image selected.')
+                : Image.file(File(model.image?.path ?? "")),
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () => model.getImage(ImageSource.camera),
             tooltip: 'Pick Image',
-            child: Icon(Icons.add_a_photo),
+            child: const Icon(Icons.add_a_photo),
           ),
         ),
         onWillPop: () async {
           if (model.image != null) {
-            Navigator.of(context).pop(model.image.path);
+            Navigator.of(context).pop(model.image?.path);
             return false;
           } else {
             return true;

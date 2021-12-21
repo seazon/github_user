@@ -4,6 +4,7 @@ import 'package:github_user/ui/views/location/location_navigator.dart';
 
 import '../basic_view.dart';
 import 'location_viewmodel.dart';
+import 'package:get/get.dart';
 
 class LocationView extends BasicView<LocationViewModel>
     implements LocationNavigator {
@@ -28,7 +29,7 @@ class LocationView extends BasicView<LocationViewModel>
       body: Column(
         children: <Widget>[
           MaterialButton(onPressed: () => model.requestLocation()),
-          Text(model.locationData.toString())
+          Text(model.locationData == null ? "" : model.locationData.toString())
         ],
       ),
     );
@@ -37,13 +38,15 @@ class LocationView extends BasicView<LocationViewModel>
   @override
   void showErrorDialog() {
     _model.showDialog(
-      title: S.of(_context).common_alert,
-      description: S.of(_context).location_permission_not_grant_description,
-      cancelTitle: S.of(_context).common_cancel,
-      buttonTitle: S.of(_context).location_permission_go_to_setting,
-      onTap: () {
-        _model.openAppSettings();
-      },
-    );
+        title: S.of(_context).common_alert,
+        content: S.of(_context).location_permission_not_grant_description,
+        textConfirm: S.of(_context).location_permission_go_to_setting,
+        textCancel: S.of(_context).common_cancel,
+        onConfirm: () {
+          _model.gotoAppSettings();
+        },
+        onCancel: () {
+          Get.back();
+        });
   }
 }

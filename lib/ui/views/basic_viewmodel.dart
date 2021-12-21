@@ -5,20 +5,20 @@ import 'package:github_user/utils/log_plugin.dart';
 
 class BasicViewModel extends BaseViewModel with LogPlugin {
   void showDialog({
-    String? title,
-    required String description,
-    String cancelTitle = "",
-    String buttonTitle = 'Ok',
-    Function? onTap,
-    Function? onCancelTap,
+    required String title,
+    String? content,
+    required String textConfirm,
+    String textCancel = "",
+    VoidCallback? onConfirm,
+    VoidCallback? onCancel,
   }) async {
     Get.defaultDialog(
-        title: title ?? "",
-        content: Text(description),
-        textCancel: cancelTitle,
-        textConfirm: buttonTitle,
-        onCancel: onCancelTap?.call(),
-        onConfirm: onTap?.call());
+        title: title,
+        content: content == null ? null : Text(content),
+        textConfirm: textConfirm,
+        textCancel: textCancel,
+        onCancel: onCancel,
+        onConfirm: onConfirm);
   }
 
   void showSnackBar({

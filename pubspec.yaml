@@ -60,7 +60,8 @@ dependencies:
   webview_flutter: ^2.3.1
   # location
   location: ^4.3.0
-  location_permissions: ^4.0.1
+  # permission
+  permission_handler: ^8.3.0
   # getx
   get: ^4.6.1
 
