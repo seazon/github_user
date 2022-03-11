@@ -18,17 +18,18 @@ class GithubUserListView extends BasicView<GithubUserListViewModel> {
       BuildContext context, GithubUserListViewModel model, Widget? child) {
     init(model); // TODO should put init method in right place
     return Scaffold(
-        appBar: AppBar(title: Text("Search Github User: ${model.counter}")),
         body: Container(
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.fromLTRB(
+                10, MediaQuery.of(context).viewPadding.top, 10, 10),
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
             child: Column(children: <Widget>[
               Container(
-                padding: EdgeInsets.only(left: 10),
+                margin: EdgeInsets.only(top: 18),
+                padding: EdgeInsets.only(left: 16),
                 decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(10)),
+                    color: const Color.fromARGB(255, 245, 245, 245),
+                    borderRadius: BorderRadius.circular(24)),
                 child: TextField(
                   controller: _controller,
                   onSubmitted: (value) {
@@ -36,10 +37,24 @@ class GithubUserListView extends BasicView<GithubUserListViewModel> {
                       model.search(value);
                     }
                   },
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Colors.black),
                   decoration: InputDecoration(
                       hintText: "Search",
-                      hintStyle: TextStyle(color: Colors.white),
+                      hintStyle: TextStyle(color: Colors.black, fontSize: 13),
+                      suffix: GestureDetector(
+                        onTap: () {
+                          FocusScope.of(context).requestFocus(FocusNode());
+                          model.search(_controller.text);
+                        },
+                        child: SizedBox(
+                          width: 56.0,
+                          child: Image(
+                            image: AssetImage("images/search.png"),
+                            width: 13.0,
+                            height: 15.0,
+                          ),
+                        ),
+                      ),
                       border: InputBorder.none),
                 ),
               ),
@@ -71,19 +86,31 @@ class _UserList extends StatelessWidget {
       itemCount: this.users.length,
       itemBuilder: (context, index) {
         final user = this.users[index];
-
         return ListTile(
-          contentPadding: EdgeInsets.all(10),
-          leading: Container(
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                    fit: BoxFit.cover, image: NetworkImage(user.avatar_url)),
-                borderRadius: BorderRadius.circular(6)),
-            width: 50,
-            height: 100,
-          ),
-          title: Text(user.login),
-        );
+            horizontalTitleGap: 16,
+            contentPadding: EdgeInsets.all(10),
+            leading: Container(
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      fit: BoxFit.cover, image: NetworkImage(user.avatar_url)),
+                  borderRadius: BorderRadius.circular(16)),
+              width: 32,
+              height: 32,
+            ),
+            minLeadingWidth: 0,
+            title: Text(user.login,
+                style: TextStyle(color: Colors.black, fontSize: 13)),
+            trailing: Container(
+              width: 55,
+              height: 24,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(4),
+                color: Colors.black,
+              ),
+              alignment: Alignment.center,
+              child: Text("关注",
+                  style: TextStyle(color: Colors.white, fontSize: 11)),
+            ));
       },
     );
   }

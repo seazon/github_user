@@ -44,7 +44,8 @@ class MyApp extends StatelessWidget {
             headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
             bodyText1: TextStyle(fontSize: 72.0, color: Colors.grey, fontWeight: FontWeight.w300),
           )),
-      home: HomeView(),
+      home: GithubUserListView(),
+      // home: HomeView(),
       getPages: [
         GetPage(name: "/", page: () => HomeView()),
         GetPage(name: "/github-user", page: () => GithubUserListView()),

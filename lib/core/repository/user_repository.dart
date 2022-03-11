@@ -22,6 +22,7 @@ class GithubUserRepository {
     _databaseService.saveUsers(users);
   }
 
+  @Deprecated("")
   Future<int> incrementCounter() async {
     return _sharedPreferencesService.incrementCounter();
   }
